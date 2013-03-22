@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+        This file is part of Tryton & Nereid. The COPYRIGHT file at the
+        top level of this repository contains the full copyright notices
+        and license terms.
+    -->
+<tryton>
+    <data>
+
+ <record model="ir.ui.view" id="nereid_activity_stream_tree_form">
+            <field name="model">activity.stream1</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Activity Stream">
+                    <field name="actor"/>
+                    <field name="verb"/>
+                    <field name="object"/>
+                    <field name="target"/>
+                    <field name="create_date"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+         <record model="ir.ui.view" id="nereid_activity_stream_view_form">
+            <field name="model">activity.stream1</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Activity Stream">
+                   <label name="actor"/>
+                    <field name="actor"/>
+                     <label name="verb"/>
+                    <field name="verb"/>
+                     <label name="object"/>
+                    <field name="object"/>
+                     <label name="target"/>
+                    <field name="target"/>
+                    <label name="create_date"/>
+                    <field name="create_date"/>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.action.act_window"
+            id="act_nereid_activity_stream_view_form">
+            <field name="name">Activity Stream</field>
+            <field name="res_model">activity.stream1</field>
+        </record>
+
+        <menuitem name="Activity Stream"
+            parent="nereid.menu_nereid"
+            id="menu_nereid_activity_stream_post"
+            sequence="120"/>
+
+            <menuitem parent="menu_nereid_activity_stream_post"
+            action="act_nereid_activity_stream_view_form"
+            id="menu_nereid_activity_stream_post_list"
+            sequence="20" icon="tryton-list"/>
+         </data>
+</tryton>
+
